@@ -11,7 +11,6 @@
 
 import cv2
 import numpy as np
-import mediapipe as mp
 from Modules import HandTrackingModule as htm
 import autopy
 import time
@@ -31,6 +30,8 @@ cap.set(4, hCam)
 detector = htm.handDetector(maxHands=1, detectionCon=0.7, trackCon=0.7)
 wScr, hScr = autopy.screen.size()
 print(wScr, hScr)
+
+clicked=True
 
 ########################
 # Computer Vision Loop #
@@ -55,7 +56,7 @@ while True:
                           (255,0,255), 2)
 
         # 4) Only Index Finger: Moving Mode
-        if fingers[1] == 1 and fingers[2] == 0:
+        if fingers[1] == 1:
             
             # 5) Convert Coordinates
             x3 = np.interp(x1, (frameR, wCam-frameR), (0, wScr))
@@ -78,9 +79,16 @@ while True:
             
             # 10) Click mouse if distance short
             print(length)
-            if length < 30:
-                cv2.circle(img, (lineInfo[4], lineInfo[5]), 15, (0,255,0), cv2.FILLED)
-                autopy.mouse.click()
+            
+            if length < 50:
+                if clicked == 0:
+                    clicked = True
+                    print('click')
+                    cv2.circle(img, (lineInfo[4], lineInfo[5]), 15, (0,255,0), cv2.FILLED)
+                    autopy.mouse.click()
+            else:
+                print('click enabled!')
+                clicked = False
 
 
     # 11) Frame Rate
