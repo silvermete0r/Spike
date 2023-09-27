@@ -11,7 +11,7 @@
 
 [![Watch the video](https://img.youtube.com/vi/Lw_kOw2dS-w/hqdefault.jpg)](https://youtu.be/Lw_kOw2dS-w?si=LqM6Q_JcSI2B2UQD)
 
-[![Watch the video]([https://www.youtube.com/watch?v=HM7aIyqEVAk](https://youtu.be/HM7aIyqEVAk))
+[![Watch the video](https://www.youtube.com/watch?v=HM7aIyqEVAk)](https://youtu.be/HM7aIyqEVAk)
 
 
 ## 🚀 Usage
